@@ -1,5 +1,4 @@
-name: AWS Cost Notify Scheduler
-
+name: AWS Cost Notify Cron Job
 on:
 	schedule:
 		- cron: '0 15 * * 1'
