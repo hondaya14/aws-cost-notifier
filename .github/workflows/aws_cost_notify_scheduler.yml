@@ -1,0 +1,17 @@
+name: AWS Cost Notify Scheduler
+
+on:
+	schedule:
+		- cron: '0 15 * * 1'
+jobs:
+  notify:
+    name: notify
+    steps:
+      - name: Run aws cost notify scheduler
+        run: |
+			// todo: なんらかのコードで実行
+		env:
+			AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+			AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+			DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+			DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
