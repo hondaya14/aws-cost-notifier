@@ -5,15 +5,13 @@ on:
     - cron: "0 3 * * 1" # Weekly Monday 
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   notify:
     name: notify
     runs-on: ubuntu-latest
+    environment: production  # 環境名を指定
     steps:
+      - uses: actions/checkout@v4
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
