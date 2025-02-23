@@ -1,8 +1,14 @@
 name: AWS Cost Notify Cron Job
+
 on:
   schedule:
     - cron: "0 3 * * 1" # Weekly Monday 
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   notify:
     name: notify
@@ -16,10 +22,7 @@ jobs:
           aws-region: ap-northeast-1
       - name: Run aws cost notify scheduler
         run: node cost_notify.js
-    env:
-      DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
-      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-permissions:
-  id-token: write
-  contents: read
+        env:
+          DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
 
