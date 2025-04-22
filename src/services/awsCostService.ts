@@ -33,7 +33,7 @@ export class AwsCostService {
         if (result.Groups) {
           for (const group of result.Groups) {
             const amount = parseFloat(
-              (group.Metrics && group.Metrics.UnblendedCost ? group.Metrics.UnblendedCost.Amount : "0")
+              group.Metrics?.UnblendedCost?.Amount ?? "0"
             );
             groups.push({ keys: group.Keys || [], amount });
           }
