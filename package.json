@@ -1,5 +1,24 @@
 {
+  "name": "aws-cost-notifier",
+  "version": "1.0.0",
+  "description": "AWS Cost Notifier for Discord",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest"
+  },
   "dependencies": {
-    "@aws-sdk/client-cost-explorer": "^3.750.0"
+    "@aws-sdk/client-cost-explorer": "^3.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
   }
 }
